@@ -4,20 +4,29 @@ package Client;
 import java.util.*;
 
 public class Compte {
-    private String numeroCompte;
+    private static int count = 5555;
+    private int numeroCompte;
     private double solde;
     private TypeCompte typeCompte;
     private Set<Transactions> historiqueTransactions ;
 
 
-    public Compte(String numeroCompte, TypeCompte typeCompte) {
-        this.numeroCompte = numeroCompte;
-        this.typeCompte = typeCompte;
+    public Compte() {
+        this.numeroCompte = count++;
+        this.typeCompte = TypeCompte.COURANT;
         this.solde = 0.0;
         this.historiqueTransactions = new HashSet<>();
     }
 
-    public String getNumeroCompte() {
+//    public Compte(int count, int numeroCompte, double solde) {
+//        this.count = count;
+//        this.numeroCompte = numeroCompte;
+//        this.solde = solde;
+//        this.typeCompte = typeCompte;
+//        this.historiqueTransactions = historiqueTransactions;
+//    }
+
+    public int getNumeroCompte() {
         return numeroCompte;
     }
 
@@ -33,12 +42,12 @@ public class Compte {
         return historiqueTransactions;
     }
 
-    public void depot(double montant) throws IllegalArgumentException {
+    public void depot(double montant) {
         if (montant <= 0) {
             System.out.println("Le montant doit être positif");
         }
         solde += montant;
-        Transactions transaction = new Transactions(TypeTransaction.DEPOT, montant, null, numeroCompte);
+        Transactions transaction = new Transactions(TypeTransaction.DEPOT, montant, 0, numeroCompte);
         historiqueTransactions.add(transaction);
     }
 
@@ -51,20 +60,20 @@ public class Compte {
             System.out.println("Solde insuffisant");
         }
         solde -= montant;
-        Transactions transaction = new Transactions(TypeTransaction.RETRAIT, montant, numeroCompte, null);
+        Transactions transaction = new Transactions(TypeTransaction.RETRAIT, montant, numeroCompte, 0);
         historiqueTransactions.add(transaction);
     }
 
 
 
-    public void transfer(double montant, String compteSource)  {
-        if (montant <= 0) {
-            System.out.println("Le montant doit être positif");
-        }
-        solde += montant;
-        Transactions transaction = new Transactions(TypeTransaction.VIREMENT, montant, compteSource, numeroCompte);
-        historiqueTransactions.add(transaction);
-    }
+//    public void transfer(double montant, String compteSource)  {
+//        if (montant <= 0) {
+//            System.out.println("Le montant doit être positif");
+//        }
+//        solde += montant;
+//        Transactions transaction = new Transactions(TypeTransaction.VIREMENT, montant, compteSource, numeroCompte);
+//        historiqueTransactions.add(transaction);
+//    }
 
 
 

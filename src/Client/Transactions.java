@@ -12,11 +12,11 @@ public class Transactions {
     private TypeTransaction type;
     private double montant;
     private LocalDate date;
-    private String CompteSource;
-    private String CompteDestination;
+    private int CompteSource;
+    private int CompteDestination;
 
 
-    public Transactions(TypeTransaction type, double montant, String compteSource, String compteDestination) {
+    public Transactions(TypeTransaction type, double montant, int compteSource, int compteDestination) {
         this.idTransaction = compteurId++;
         this.type = type;
         this.montant = montant;
@@ -41,11 +41,11 @@ public class Transactions {
         return date;
     }
 
-    public String getCompteSource() {
+    public int getCompteSource() {
         return CompteSource;
     }
 
-    public String getCompteDestination() {
+    public int getCompteDestination() {
         return CompteDestination;
     }
 

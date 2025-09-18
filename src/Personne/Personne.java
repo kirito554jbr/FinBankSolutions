@@ -4,13 +4,6 @@ package Personne;
 public abstract class Personne {
 
 
-//
-//    public Personne(String nom, String prenom, String email, String motDePasse) {
-//    }
-//
-
-
-
     protected String nom;
     protected String prenom;
     protected String email;
