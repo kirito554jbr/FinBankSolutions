@@ -11,6 +11,7 @@ public class Compte {
     private Set<Transactions> historiqueTransactions ;
 
 
+
     public Compte() {
         this.numeroCompte = count++;
         this.typeCompte = TypeCompte.COURANT;
@@ -18,20 +19,20 @@ public class Compte {
         this.historiqueTransactions = new HashSet<>();
     }
 
-//    public Compte(int count, int numeroCompte, double solde) {
-//        this.count = count;
-//        this.numeroCompte = numeroCompte;
-//        this.solde = solde;
-//        this.typeCompte = typeCompte;
-//        this.historiqueTransactions = historiqueTransactions;
-//    }
+//
 
     public int getNumeroCompte() {
         return numeroCompte;
     }
 
+
+
     public double getSolde() {
         return solde;
+    }
+
+    public void setSolde(double solde) {
+        this.solde = solde;
     }
 
     public TypeCompte getTypeCompte() {
@@ -62,6 +63,17 @@ public class Compte {
         solde -= montant;
         Transactions transaction = new Transactions(TypeTransaction.RETRAIT, montant, numeroCompte, 0);
         historiqueTransactions.add(transaction);
+    }
+
+
+    @Override
+    public String toString() {
+        return "Compte{" +
+                "numeroCompte=" + numeroCompte +
+                ", solde=" + solde +
+                ", typeCompte=" + typeCompte +
+                ", historiqueTransactions=" + historiqueTransactions +
+                '}';
     }
 
 

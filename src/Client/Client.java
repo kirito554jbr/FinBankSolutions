@@ -6,9 +6,11 @@ import java.util.*;
 
 public class Client extends Personne {
 
+//    private static Client instance;
     private static int compteurId = 9999;
     private int idClient;
     private final Map<Integer, Compte> comptes;
+
 
     public Client(String nom, String prenom, String email, String motDePasse) {
         super(nom, prenom, email, motDePasse);
@@ -16,6 +18,12 @@ public class Client extends Personne {
         this.comptes = new HashMap<>();
     }
 
+//    public static Client getInstance(String nom, String prenom, String email, String motDePasse) {
+//        if (instance == null) {
+//            instance = new Client( nom,  prenom,  email, motDePasse);  // create only once
+//        }
+//        return instance;
+//    }
 
     // Getters
     public int getIdClient() {
@@ -25,6 +33,12 @@ public class Client extends Personne {
     public Map<Integer, Compte> getComptes() {
         return comptes;
     }
+
+
+
+//    public void getCompteNumero(){
+//
+//    }
 
 
     // Méthodes métier
@@ -43,6 +57,10 @@ public class Client extends Personne {
     public Compte getCompte(int numeroCompte) {
         return comptes.get(numeroCompte);
     }
+
+
+
+
 
 //    public boolean posssedeCompte(String numeroCompte) {
 //        return comptes.containsKey(numeroCompte);

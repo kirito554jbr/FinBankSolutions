@@ -5,14 +5,36 @@ public class Main {
     public static void main(String[] args) {
 
 
-        UserService user =  new UserService("aymen","jebrane","ay5jbr2023@gmsil.com","0000");
-        UserService user2 =  new UserService("anouar","sorror","anouar.sorrour@gmsil.com","0000");
+        UserService user =  new UserService();
+//        UserService user2 =  new UserService();
 
 //        UserService user =  new UserService();
 
-        user.ajouterCompte();
-        user2.ajouterCompte();
+        user.ajouterCompte("aymen","jebrane","ay5jbr2023@gmail.com","0000");
+        user.ajouterCompte("arya","stark","arya.stark@gmail.com","0000");
         user.supprimerCompte(5555);
+        System.out.println("*************************************");
+        user.getComptes();
+        System.out.println("*************************************");
+
+
+        TransactionService transaction = new TransactionService();
+        transaction.depot(user.getCompteToUse(),3000.0);
+//        transaction.depot(user.getComptes(),3000.0);
+
+//        transaction.getSolde();
+        System.out.println("*************************************");
+        transaction.depot(user.getCompteToUse(),3050.0);
+//        transaction.getSolde();
+        System.out.println("*************************************");
+
+        user.getAllComptes();
+        System.out.println("*************************************");
+//
+//        transaction.retrait(4000.0);
+//        transaction.getSolde();
+
+
 
 
 
