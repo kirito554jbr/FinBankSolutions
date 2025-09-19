@@ -8,10 +8,11 @@ public class TransactionService {
         this.compte = new Compte();
     }
 
-    public void depot(Compte userCompte,double solde) {
+    public void depot(Compte userCompte,double solde, UserService user) {
 //        System.out.println(userCompte);
         this.compte.depot(solde);
-        this.user = new UserService();
+        this.user = user;
+//        this.user = new UserService();
         this.user.deposit(solde, userCompte);
 
 

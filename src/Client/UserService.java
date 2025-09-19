@@ -43,6 +43,12 @@ public class UserService {
 
 
         comptes.put(this.client.getIdClient(), this.user);
+        System.out.println("tester HashMap");
+        comptes.forEach((integer, compte) -> {
+            System.out.println(compte.toString());
+        });
+        System.out.println("tester HashMap");
+
 //        storeClients.add(this.client.getIdClient());
 
         storeClients = this.client.getIdClient();
@@ -60,15 +66,22 @@ public class UserService {
     }
 
     public void deposit(double montant, Compte compte) {
+//
+//        System.out.println("here**************");
+//        System.out.println(compte.getNumeroCompte());
+//        System.out.println("here**************");
 
-        System.out.println(compte.getNumeroCompte());
         int key = this.findKeyByNumeroCompte(compte.getNumeroCompte());
-        System.out.println(key);
+//        System.out.println("here**************");
+//
+//        System.out.println(key);
+//        System.out.println("here**************");
+
         Compte c = comptes.get(key);
         if(c == null) {
-            c.setSolde(montant);
-        }else {
             System.out.println("Compte introuvable !");
+        }else {
+            c.setSolde(montant);
         }
 //        comptes.put(this.client.getIdClient(), this.user.setSolde(montant));
     }
